@@ -10,10 +10,12 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 \begin{problem}
   \subpart What is the precision of a floating-point number on the computer?
   Experiment adding very small numbers to the number 1.0 until you see no change.
-  That is, what is the smallest $\delta$ such that \emph{on the computer} $1+\delta>1$?
+  That is, what is the smallest $\delta$ such that \emph{on the computer} $[1+\delta]>1$?
   Is your answer for \code{float} or \code{double}?
 
-  \subpart Now what is the smallest $\delta$ such that \emph{on the computer} $\sqrt{1 + \delta}>1$?
+  \subpart Now what is the largest $\Delta$ such that \emph{on the computer} $[1+\Delta]>\Delta$?
+
+  \subpart What is the largest $\Delta$ such that $\exp(-\Delta)>0$? What about such that $\exp(\Delta)$ gives a floating-point answer?
 \end{problem}
 
 \begin{problem}
@@ -47,22 +49,28 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 \begin{problem}
   Here's a function of two angles, $\theta,\varpi$:
   \begin{align}
-    f(\theta,\alpha) &= sin(3\,\theta)\,\sin(5,\varpi) ~.
+    f(\theta,\alpha) &= sin(3\,\theta)\,\sin(5\,\varpi) ~.
   \end{align}
   \subpart Plot this function with a sensible colormap on the square $0<\theta<2\pi$, $0<\varpi<2\pi$.
   Make sure the plot range is exactly this square range and that the two axes are properly labeled.
   When you do this, you will have to decide on a size (number of pixels) for the underlying image.
   Make your underlying image exactly 18 pixels in the $\theta$ direction and 30 pixels in the $\alpha$ direction.
-  Overplot thin or faint vertical and horizontal lines showing where you expect to see maxima and minima of this function.
+  Overplot thin or faint vertical and horizontal lines showing where you expect to see maxima of this function.
 
   \subpart Now plot this function $f(\theta,\alpha)$ taken to the fifth power.
   The peaks should get sharper, and should be precisely located in the correct places.
   Or should they?
-  When you make all your plots, make sure you use \code{interpolation='nearest'} or equivalent.
+  When you make all your plots, make sure you use \code{interpolation="nearest"} or equivalent.
 
   \subpart Now make the two plots again, but use a grid that is 521 pixels in the $\theta$ direction and 601 pixels in the $\varpi$ direction.
-  Do you feel better about your plot now? Or not?
+  Do you feel better about your plots now? Or not?
 \end{problem}
+
+\begin{note}
+  When you make a finite pixelized image, you have to think about where the left edge of each pixel is, where the right edge of each pixel is, and where the center of each pixel is.
+  Think hard aobout this and choose wisely!
+  I am very specific about the plotting range; I want it to be exactly $0<\theta<2\pi$ and $0<\varpi<2\pi$.
+\end{note}
 
 \begin{problem}
   Write down a few tests of the \code{sin()} and \code{cos()} functions, based on old-school trig identities, or even simpler facts about angles.
@@ -84,6 +92,7 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 
 \begin{note}
   Are your plots informative about, or useful for, anything?
+  Is it more useful to plot the residual $\delta$ or (when it is non-zero) the logarithm of it?
 \end{note}
 
 \end{document}
