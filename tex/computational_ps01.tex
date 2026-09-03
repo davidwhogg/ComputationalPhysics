@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\input{computational}
+\begin{document}
+
+\startps{1}
+Due Friday 2026 September 11 at 17:00 on Brightspace.
+Figure out a way to make your solution be one big PDF file with figures and text; maybe use \LaTeX?
+Be sure to explicitly give credit where it is due, and as specifically as possible, for all your problems.
+
+\begin{problem}
+  \subpart What is the precision of a floating-point number on the computer?
+  Experiment adding very small numbers to the number 1.0 until you see no change.
+  That is, what is the smallest $\delta$ such that \emph{on the computer} $1+\delta>1$?
+  Is your answer for \code{float} or \code{double}?
+
+  \subpart Now what is the smallest $\delta$ such that \emph{on the computer} $\sqrt{1 + \delta}>1$?
+\end{problem}
+
+\begin{problem}
+  \subpart How far does a muon travel during its mean lifetime?
+  This depends on how fast it is moving.
+  Look up the lifetime of the muon and make a plot of the distance traveled by the muon during that lifetime as a function of the speed it is going.
+  Make a plot of distance (on the vertical axis) \vs{} dimensionless speed $\beta$ and make a plot \vs{} Lorentz factor $\gamma$.
+  Plot a labeled horizontal line showing the naive maximum distance (that is, the mean lifetime times the speed of light $c$) and a labeled horizontal line showing the scale height of the atmosphere ($10\,\km$).
+  Why is that latter distance relevant?
+
+  \subpart Now change to plotting distance \vs{} $[1-\beta]$ and vs $\gamma$, but make your plots log--log.
+  Add a labeled horizontal line showing the distance from the Earth to the Sun.
+  Make sure your range of $[1-\beta]$ and $\gamma$ reaches to (or, better, slightly beyond) the Solar distance!
+\end{problem}
+
+\begin{note}
+  You have finished this problem when you have produced four plots, all with good labels and clear content.
+  Bonus points if these four plots are produced as four panels in a $2\times 2$ plot matrix.
+\end{note}
+
+\begin{note}
+  The speed $\beta$ is a bad way to parameterize high speeds; $\gamma$ is better.
+  How do you parameterize both low speeds and high speeds in a way that works okay, computationally?
+\end{note}
+
+\begin{note}
+  The point of this problem is to make figures that can be understood by someone, or used in a textbook, say.
+  Do your figures meet these criteria?
+\end{note}
+
+\begin{problem}
+  Here's a function of two angles, $\theta,\varpi$:
+  \begin{align}
+    f(\theta,\alpha) &= sin(3\,\theta)\,\sin(5,\varpi) ~.
+  \end{align}
+  \subpart Plot this function with a sensible colormap on the square $0<\theta<2\pi$, $0<\varpi<2\pi$.
+  Make sure the plot range is exactly this square range and that the two axes are properly labeled.
+  When you do this, you will have to decide on a size (number of pixels) for the underlying image.
+  Make your underlying image exactly 18 pixels in the $\theta$ direction and 30 pixels in the $\alpha$ direction.
+  Overplot thin or faint vertical and horizontal lines showing where you expect to see maxima and minima of this function.
+
+  \subpart Now plot this function $f(\theta,\alpha)$ taken to the fifth power.
+  The peaks should get sharper, and should be precisely located in the correct places.
+  Or should they?
+  When you make all your plots, make sure you use \code{interpolation='nearest'} or equivalent.
+
+  \subpart Now make the two plots again, but use a grid that is 521 pixels in the $\theta$ direction and 601 pixels in the $\varpi$ direction.
+  Do you feel better about your plot now? Or not?
+\end{problem}
+
+\begin{problem}
+  Write down a few tests of the \code{sin()} and \code{cos()} functions, based on old-school trig identities, or even simpler facts about angles.
+  Choose tests that depend only on one angle $\theta$.
+  Each of these tests can be written to produce a residual; for example, the fact that $\sin^2\theta+\cos^2\theta=1$ can be written in residual form as
+  \begin{align}
+    \delta &= \sin^2\theta + \cos^2\theta - 1 ~.
+  \end{align}
+  Plot, for each of your tests, the value of $\delta$ as a function of $\log_{10}(\theta)$.
+  Give your plots good labels and title or label each plot with the test that it is executing.
+  Extend your plots far enough in $\theta$ that you start to see issues.
+  Or do you ever see issues?
+\end{problem}
+
+\begin{note}
+  You might look at problems that involve adding angles or dividing angles, to see the numerical issues most clearly.
+  For example, a dumb test is $\sin(\theta + 2\pi) = \sin(\theta)$.
+\end{note}
+
+\begin{note}
+  Are your plots informative about, or useful for, anything?
+\end{note}
+
+\end{document}

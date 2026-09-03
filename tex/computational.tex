@@ -1,0 +1,72 @@
+%% BUGS:
+%% - The \begin{problem} ... \end{problem} is only used in exams??
+
+\usepackage{url, graphicx, epstopdf}
+
+% page layout
+\usepackage[letterpaper, textheight=9.5in, textwidth=5.5in]{geometry}
+\usepackage{setspace}
+\setstretch{1.08}
+\pagestyle{plain}
+\sloppy\sloppypar\raggedbottom\frenchspacing\thispagestyle{empty}
+
+% problem set header
+\newcommand{\psname}{Problem Set}
+\newcommand{\startps}[1]{\section*{Computational Physics --- \psname~{#1}}}
+
+% problem formatting
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newcommand{\problemname}{Problem}
+\newtheorem{problem}{\problemname}
+\newcommand{\probref}[1]{\problemname~\ref{#1}}
+\theoremstyle{remark}
+\newcommand{\notename}{Note}
+\newtheorem{note}{\notename}[problem]
+\newcommand{\noteref}[1]{\textit{\notename}~\ref{#1}}
+\newcounter{subpart}[problem]
+\newcommand{\subpart}{\par\addvspace{1ex}\refstepcounter{subpart}\textsl{(\alph{subpart})}~}
+
+% words
+\newcommand{\foreign}[1]{\textsl{#1}}
+\newcommand{\vs}{\foreign{vs}}
+
+% code
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+
+% math
+\usepackage{amsmath}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+
+% primary units
+\newcommand{\rad}{\mathrm{rad}}
+\newcommand{\kg}{\mathrm{kg}}
+\newcommand{\m}{\mathrm{m}}
+\newcommand{\s}{\mathrm{s}}
+
+% secondary units
+\renewcommand{\deg}{\mathrm{deg}}
+\newcommand{\km}{\mathrm{km}}
+\newcommand{\cm}{\mathrm{cm}}
+\newcommand{\mm}{\mathrm{mm}}
+\newcommand{\ft}{\mathrm{ft}}
+\newcommand{\mi}{\mathrm{mi}}
+\newcommand{\AU}{\mathrm{AU}}
+\newcommand{\ns}{\mathrm{ns}}
+\newcommand{\h}{\mathrm{h}}
+\newcommand{\yr}{\mathrm{yr}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\J}{\mathrm{J}}
+\newcommand{\eV}{\mathrm{eV}}
+\newcommand{\W}{\mathrm{W}}
+\newcommand{\Pa}{\mathrm{Pa}}
+
+% derived units
+\newcommand{\mps}{\m\,\s^{-1}}
+\newcommand{\mph}{\mi\,\h^{-1}}
+\newcommand{\mpss}{\m\,\s^{-2}}
+
+% random units
+\newcommand{\au}{\mathrm{a.u.}}
+
