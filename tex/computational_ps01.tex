@@ -9,13 +9,15 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 
 \begin{problem}
   \subpart What is the precision of a floating-point number on the computer?
-  Experiment adding very small numbers to the number 1.0 until you see no change.
+  Experiment by adding very small numbers to the number 1.0 until you see no change.
   That is, what is the smallest $\delta$ such that \emph{on the computer} $[1+\delta]>1$?
   Is your answer for \code{float} or \code{double}?
 
   \subpart Now what is the largest $\Delta$ such that \emph{on the computer} $[1+\Delta]>\Delta$?
 
-  \subpart What is the largest $\Delta$ such that $\exp(-\Delta)>0$? What about such that $\exp(\Delta)$ gives a floating-point answer?
+  \subpart What is the largest $\Delta_1$ such that $\exp(-\Delta_1)>0$?
+  What about the largest $\Delta_2$ such that $\exp(\Delta_2)$ gives a floating-point answer?
+  And what are the corresponding values of $\exp(-\Delta_1)$ and $\exp(\Delta_2)$?
 \end{problem}
 
 \begin{problem}
@@ -49,7 +51,7 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 \begin{problem}
   Here's a function of two angles, $\theta,\varpi$:
   \begin{align}
-    f(\theta,\alpha) &= sin(3\,\theta)\,\sin(5\,\varpi) ~.
+    f(\theta,\alpha) &= \sin(2\,\theta + 1)\,\sin(3\,\varpi - \frac{\pi}{4}) ~.
   \end{align}
   \subpart Plot this function with a sensible colormap on the square $0<\theta<2\pi$, $0<\varpi<2\pi$.
   Make sure the plot range is exactly this square range and that the two axes are properly labeled.
@@ -68,7 +70,7 @@ Be sure to explicitly give credit where it is due, and as specifically as possib
 
 \begin{note}
   When you make a finite pixelized image, you have to think about where the left edge of each pixel is, where the right edge of each pixel is, and where the center of each pixel is.
-  Think hard aobout this and choose wisely!
+  Think hard about this and choose wisely!
   I am very specific about the plotting range; I want it to be exactly $0<\theta<2\pi$ and $0<\varpi<2\pi$.
 \end{note}
 
