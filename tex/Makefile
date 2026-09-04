@@ -4,7 +4,7 @@ RM = /bin/rm -f
 
 .SUFFIXES: .tex .dvi .ps .pdf .py
 
-ALLFILES = $(patsubst computational_ps%.tex,computational_ps%.pdf,$(wildcard *.tex))
+ALLFILES = $(patsubst ps%.tex,ps%.pdf,$(wildcard *.tex))
 all: $(ALLFILES) clean
 
 .tex.pdf: $<
