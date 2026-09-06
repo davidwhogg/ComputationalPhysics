@@ -33,6 +33,34 @@
 
 % code
 \newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\usepackage{xcolor}
+% Define custom colors for code highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+\usepackage{listings}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    tabsize=4
+}
+\lstset{
+    basicstyle=\small\ttfamily,
+    columns=fixed,
+    breaklines=false,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    showlines=*,
+    style=pythonstyle,
+    language=Python,
+    literate={~}{{\url{~}}}1
+}
 
 % math
 \usepackage{amsmath}

@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\input{computational}
+\begin{document}
+
+\startps{2}
+Due Friday 2026 September 18 at 17:00 on Brightspace.
+Be sure to explicitly give credit where it is due, on all problems.
+Also credit your buddies and LLMs (as per course policy).
+Failure to give explicit credits will result in points deducted.
+
+\begin{problem}
+  Re-do \psname~1, \problemname~1(a), but with a root-finding algorithm.
+  Write a simple implementation of bisection root finding, but which operates on a function $f(x)$ that returns \code{True} if a condition on $x$ is true and \code{False} if that condition is false.
+  If you don't know what the bisection method is, look it up on \textit{Wikipedia}.
+  The root-finding code should take in three arguments: The function $f$, a value $x_1$ that is on the ``true'' side of the condition, and a value $x_2$ that is on the ``false'' side of the condition.
+  Here's pseudo-code for your binary function:
+\begin{lstlisting}
+def f(x):
+    # Note that x is the natural log of delta
+    return 1. + np.exp(x) > 1.
+\end{lstlisting}
+  The calling sequence for your root-finding function should look something like
+\begin{lstlisting}
+def find_root(f, x1, x2, tol=1e-6):
+    if f(x1):
+        xtrue, xfalse = x1, x2
+    else:
+        xtrue, xfalse = x2, x1
+    assert f(xtrue) & ~f(xfalse)
+    # [write your iterative bisection algorithm here]
+    return x
+\end{lstlisting}
+Fill in that function and run it and give the output.
+Is it consistent with what you got for \psname~1?
+Write your code ``verbose'' such that it shows the internal values for \code{xtrue} and \code{xfalse} at each iteration.
+\end{problem}
+
+\begin{note}
+  I wrote my code snippet to be agnostic about which of $x_1,x_2$ is smaller or larger, and which is true and which is false.
+  All the code requires is that one of them be true and one of them be false.
+  See if you can make your code agnostic in this way, and then test that it is.
+\end{note}
+
+\begin{note}
+  I wrote my code snippet such that if it is called badly, it \emph{fails}.
+  This is good practice for scientific programming.
+\end{note}
+
+\end{document}
