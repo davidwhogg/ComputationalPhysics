@@ -9,6 +9,19 @@ Also credit your buddies and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
+  \subpart Read in the data file at \href{https://drive.google.com/uc?export=download&id=1YCUGRTV5uSZeWPHa7CNXzn-YB6OC7pnm}{this link}; it contains one very long column of data.
+  Now sum the entries to get one total sum of all the numbers in the file.
+  Now re-order the entries and sum again. Did you get the same number?
+  Now consider very specific, deterministic orderings that might be better or worse, and sum those.
+
+  \subpart If you get different answers in different orderings, which one is the correct sum?
+  How can you verify that one sum is correct and the others are incorrect?
+
+  \subpart Do your sums manually (with a dumb \code{for} loop maybe?) and also do them with \code{numpy.sum()}.
+  What can you conclude about how numpy does its sums? Anything?
+\end{problem}
+
+\begin{problem}
   Re-do \psname~1, \problemname~1(a), but with a root-finding algorithm.
   Write a simple implementation of bisection root finding, but which operates on a function $f(x)$ that returns \code{True} if a condition on $x$ is true and \code{False} if that condition is false.
   If you don't know what the bisection method is, look it up on \textit{Wikipedia}.
