@@ -21,6 +21,15 @@ Failure to give explicit credits will result in points deducted.
   What can you conclude about how numpy does its sums? Anything?
 \end{problem}
 
+\begin{note}
+  You will have to figure out how to read CSV files or equivalent text files.
+  There is a standard Python implementation, and there is also an \code{astropy} implementation.
+\end{note}
+
+\begin{note}
+  Hogg abhors text files. Why? What's wrong with them?
+\end{note}
+
 \begin{problem}
   Re-do \psname~1, \problemname~1(a), but with a root-finding algorithm.
   Write a simple implementation of bisection root finding, but which operates on a function $f(x)$ that returns \code{True} if a condition on $x$ is true and \code{False} if that condition is false.
@@ -57,6 +66,26 @@ Write your code ``verbose'' such that it shows the internal values for \code{xtr
 \begin{note}
   I wrote my code snippet such that if it is called badly, it \emph{fails}.
   This is good practice for scientific programming.
+\end{note}
+
+\begin{problem}
+Newman, \textit{Computational Physics, 2ed}, Problem 4.3.
+\end{problem}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Problem 4.5, except make the output of the problem a plot:
+  Plot the (absolute value of the) inaccuracy of your answer vs the number of samples $N$, and also vs wall-clock time $T$.
+  Extend your plot to a few seconds of wall-clock time, or as far as you can stand it.
+  Make your plots log--log, and make sure you obey all of Hogg's plotting guidance.
+\end{problem}
+
+\begin{note}
+  You might have to learn how to use the Python \code{time} package.
+\end{note}
+
+\begin{note}
+  Hogg's plotting guidance was given in Lecture on 2026-09-08.
+  If you missed that Lecture, consult your buddies!
 \end{note}
 
 \end{document}
