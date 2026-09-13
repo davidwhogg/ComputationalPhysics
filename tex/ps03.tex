@@ -2,15 +2,31 @@
 \input{computational}
 \begin{document}
 
-\startps{2}
+\startps{3}
 Due Friday 2026 September 25 at 18:00 on Brightspace.
 Be sure to explicitly give credit where it is due, on all problems.
 Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
-  Something where we do all the different kinds of loops in python.
+  Reconsider the problem of integrating under the semicircle that you did in \psname~2, \problemname~4.
+  Choose a sensible value for $N$ and instead of using \code{np.sum()}, do the sum four different ways, listed below.
+  Check that all three methods give you the same answer as you got with \code{np.sum()}.
+  Which is the most natural of these for your problem?
+
+  For this problem, hand in your code, not just your answers.
+  \subpart Construct the sum with a Python \code{for} loop.
+  \subpart Construct the sum with a Python \code{while} loop.
+  \subpart Construct the sum with a Python \code{map} and \code{reduce}.
 \end{problem}
+
+\begin{note}
+  The point of this problem is to exercise Python controls, not to do the integral!
+\end{note}
+
+\begin{note}
+  If you want an extra challenge (not for credit!), construct the sum with \emph{recursion}.
+\end{note}
 
 \begin{problem}
   Something where we integrate some functions.
