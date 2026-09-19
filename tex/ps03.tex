@@ -26,18 +26,37 @@ Failure to give explicit credits will result in points deducted.
 
 \begin{note}
   If you want an extra challenge (not for credit!), construct the sum with \emph{recursion}.
+  A more natural use of recursion is the bisection code you wrote in \psname~2.
+  The bisection method has a recursive structure; if you want to understand recursion that's another good side quest.
 \end{note}
 
 \begin{problem}
-  Something where we integrate some functions.
+  \subpart Newman, \textit{Computational Physics, 2ed}, Exercise 5.2.
+  \subpart Now do the same integral again, but using the \code{quadrature} method in the python \code{scipy} package.
+  Use the same (or similar) numbers of points or function evaluations.
+  \subpart Now make a graph that compares the Simpson's and quadrature integrations as a function of the number of slices (or samples or function evaluations, whichever is easiest).
+  What do you conclude?
 \end{problem}
 
 \begin{problem}
-  Something where we visualize an integration method.
+  Make a diagram or an infographic that shows a smooth, curvy function $y(x)$ as a curve,
+  a narrow integration segment $\Delta x$, some relevant function evaluations as dots,
+  and the relevant (and different) areas that one is summing in three different integration methods.
+  Think of this as an ``infographic'' that explains the difference between the three methods.
+  Hogg will say more in Lecture about what he expects.
+  For the three methods, one suggestion would be midpoint or Euler's method for the simplest,
+  trapezoidal rule for the medium, and Simpson's or second-order for the more sophisticated method.
 \end{problem}
 
+\begin{note}
+  This is supposed to be something that you might add to a textbook to explain the difference between the three methods.
+  Therefore: Label what is important to label!
+  But don't include unnecessary axes or numbers or tick marks that aren't used in the explanation.
+  You might have learn to control \code{matplotlib} for this \problemname.
+\end{note}
+
 \begin{problem}
-  Something where we look at function calls and accuracy of different integration methods.
+  Newman, \textit{Computational Physics, 2ed}, Exercise 5.6.
 \end{problem}
 
 \end{document}
