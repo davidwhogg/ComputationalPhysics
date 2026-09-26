@@ -9,7 +9,7 @@ Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
-  Grab the data at \hogg{[THIS LINK]}; it is a pickle file.
+  Grab the data at \href{https://drive.google.com/file/d/1xqEi3mKlQ9unDLYq2SZ6Dx6f6QHJAsG2/view?usp=sharing}{this link}; it is a pickle file.
   Read in the pickle file with something like this:
   \begin{lstlisting}
     xs, ys = pickle.load(fn)\end{lstlisting}
@@ -47,7 +47,23 @@ Failure to give explicit credits will result in points deducted.
 \end{problem}
 
 \begin{problem}
-  foo
+  If you took \textsl{Physics I} with Hogg, you know he loves a particular problem with two pulleys and three blocks, of mass $3\,\kg$, $4\,\kg$, and $7\,\kg$.
+  Hogg will draw this problem on the board in Lecture and discuss the relevant equations.
+  In the end, the acceleration $a_7$ of the $7\,\kg$ block can be found by solving a set of $N$ equations in $N$ unknowns.
+  Encode the equations in the form $A\,x=b$, where $A$ and $b$ are known quantities, and the unkowns are in $x$, and solve it with \code{numpy.linalg} linear algebra.
 \end{problem}
+
+\begin{note}
+  The point of this problem is the computational part, not the first-year-physics part.
+  So get your equations from Hogg or your buddy if you like.
+  This isn't about writing down the right equations; it is about putting them correctly into a computer and solving them.
+\end{note}
+
+\begin{note}
+  Computers don't take care of units (well actually they can, but \code{numpy.linalg} knows nothing about units).
+  Thus the best way to solve this problem is to \emph{make it dimensionless}.
+  What does that mean in this case?
+  You don't have to make the problem dimensionless to solve it here, but your approach is more general if you do.
+\end{note}
 
 \end{document}
