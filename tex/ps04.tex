@@ -9,8 +9,34 @@ Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
-  foo
+  Grab the data at \hogg{[THIS LINK]}; it is a pickle file.
+  Read in the pickle file with something like this:
+  \begin{lstlisting}
+    xs, ys = pickle.load(fn)\end{lstlisting}
+  \subpart Find the value of $x$ in \code{xs} that corresponds to the maximum value of $y$ in \code{ys}.
+  \subpart Now fit a parabola to $\ln(y)$ as a function of $x$ using the three points centered on the maximum point you found in the previous part.
+  You could use high school math methods to do this, or you might use \code{numpy.polynomial} code.
+  Find the value of $x$ corresponding to the maximum of that parabola.
+  \subpart Plot the input data as black dots on a properly formatted and labeled plot.
+  Plot the best-fit parabola as a thin curve.
+  Plot a vertical line at the maximum you obtained in the previous part.
+  Is everything cool?
 \end{problem}
+
+\begin{note}
+  In the last part (the plotting), you might have to think about the fact that you fit the polynomial in $\ln(y)$ but are plotting $x$ \foreign{vs} $y$.
+\end{note}
+
+\begin{note}
+  When you plot the parabola, you want to make a dense set of $x$ values so the parabola looks like a nice smooth curve.
+\end{note}
+
+\begin{note}
+  If you search GitHub(tm) you can find Hogg's code that made the fake data.
+  Is your answer correct?
+  If not, why not?
+  These questions are not for credit!
+\end{note}
 
 \begin{problem}
   Newman, \textit{Computational Physics, 2ed}, Exercise 5.12.
