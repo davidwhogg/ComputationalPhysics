@@ -9,23 +9,89 @@ Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
-  Write up 
+  \subpart
+  Write a very short Python program \code{make_hello()} that checks (using functions in the \code{os} package) whether the file \code{hello.txt} exists.
+  If it exists, do nothing.
+  If it doesn't exist, create it (maybe by opening a text file, writing the word \code{hello} into it, and closing it).
+  \subpart
+  Write a very short Python program \code{make_goodbye()} that checks whether both files \code{hello.txt} and \code{goodbye.txt} exist.
+  First: If \code{hello.txt} doensn't exist, run \code{make_hello()} and then re-run \code{make_goodbye()}.
+  That's recursive.
+  Then: If \code{goodbye.txt} doesn't exist, create it and put into it the contents of \code{hello.txt} plus the additional word ``goodbye''.
+  \subpart
+  Run \code{make_hello()} and \code{make_goodbye()} in order and check that the contents of \code{goodbye.txt} is what you expect.
+  \subpart
+  Now modify \code{make_goodbye()} so that it checks that the file modification date of \code{goodbye.txt} is later than the modification data of \code{hello.txt}.
+  If it isn't, have your code delete \code{goodbye.txt} and then re-run \code{make_goodbye()}.
+  That's also recursive.
+  Test that this functionality works as expected, perhaps by running \code{make_goodbye()} and then \code{make_hello()} and then \code{make_goodbye()} again.
+  \subpart
+  Why did Prof Hogg make this \problemname?
 \end{problem}
 
 \begin{note}
-  Foo.
+  Learn how to use Python \code{with} and use it for your file creation and file reading operations.
+\end{note}
+
+\begin{note}
+  When your code makes a file, have it print ``I'm making file [filename]!''.
+  This will make it way easier to tell what your code is choosing to do!
 \end{note}
 
 \begin{problem}
-  Newman, \textit{Computational Physics, 2ed}, Exercise~XXX.
+  In exoplanet astronomy, we solve the following equation over and over again:
+  \begin{align}
+    M &= E - e\,\sin E ~,
+  \end{align}
+  where $M$ is the ``mean anomaly'' (in radians),
+  $E$ is the ``eccentric anomaly'' (in radians),
+  and $e$ is the eccentricity (dimensionless) of an orbit.
+  \subpart
+  Write a function \code{M_from_E(E, e)} that computes and returns $M$ (note that this is very simple!)
+  \subpart
+  Write a function \code{E_from_M(M, e)} that computes and returns $E$ (note that this requires a root-finding).
+  You can use binary search or else Newton's method or even \emph{relaxation}.
+  Your code should, internally, call \code{M_from_E} as part of the root-finding operation; that makes sure that these two codes are inverses of each other.
+  \subpart
+  Make a scatter plot showing $M$ for a uniform grid of 12 angles $E$ in $0\leq E 2\pi$ for $e=0., 0.5, 0.75, 0.95$.
+  Give each set of points a label and a legend on the figure.
+  Make sure you label all your axes correctly.
+  \subpart
+  Make another scatter plot showing $E$ for a uniform grid of 12 angles $M$.
+  Do your two plots agree in the relevant ways?
+\end{problem}
+
+\begin{note}
+  If you use Newton's method, you might also want to write a function \code{dM_dE(E, e)} that outputs the derivative $\left.\dd M/\dd E\right|_{E,e}$.
+\end{note}
+
+\begin{note}
+  If you want to learn some Python Jax, you could write \code{dM_dE} by writing \code{M_from_E} in Jax and then applying the \code{jax.grad} function.
+\end{note}
+
+\begin{note}
+  The two functions you write should be inverses of each other.
+  How would you write a sensible, non-trivial test of that?
+  If you want to do more here, write that test and see if your functions pass it.
+  What other tests should the functions pass?
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~6.18.
 \end{problem}
 
 \begin{problem}
-  Newman, \textit{Computational Physics, 2ed}, Exercise~XXX.
+  Newman, \textit{Computational Physics, 2ed}, Exercise~6.21.
 \end{problem}
 
-\begin{problem}
-  Foo.
-\end{problem}
+\begin{note}
+  You don't have to do part (e) of this problem, but if you love it and want to, we will admire you for doing it.
+\end{note}
+
+\begin{note}
+  Don't get too distracted by any zero eigenvalues you find.
+  Interpret them the way you did in \textsl{Physics~III}.
+  The ``lowest frequency'' is related to the lowest non-zero eigenvalue.
+\end{note}
 
 \end{document}
