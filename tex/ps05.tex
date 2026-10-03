@@ -12,12 +12,12 @@ Failure to give explicit credits will result in points deducted.
   \subpart
   Write a very short Python program \code{make_hello()} that checks (using functions in the \code{os} package) whether the file \code{hello.txt} exists.
   If it exists, do nothing.
-  If it doesn't exist, create it (maybe by opening a text file, writing the word \code{hello} into it, and closing it).
+  If it doesn't exist, create it by opening a text file, writing the word \code{hello} into it, and closing it.
   \subpart
   Write a very short Python program \code{make_goodbye()} that checks whether both files \code{hello.txt} and \code{goodbye.txt} exist.
   First: If \code{hello.txt} doensn't exist, run \code{make_hello()} and then re-run \code{make_goodbye()}.
   That's recursive.
-  Then: If \code{goodbye.txt} doesn't exist, create it and put into it the contents of \code{hello.txt} plus the additional word ``goodbye''.
+  Then: If \code{goodbye.txt} doesn't exist, create it and put into it the contents of \code{hello.txt} plus the additional word \code{goodbye}.
   \subpart
   Run \code{make_hello()} and \code{make_goodbye()} in order and check that the contents of \code{goodbye.txt} is what you expect.
   \subpart
@@ -36,6 +36,7 @@ Failure to give explicit credits will result in points deducted.
 \begin{note}
   When your code makes a file, have it print ``I'm making file [filename]!''.
   This will make it way easier to tell what your code is choosing to do!
+  It will also be way easier for Iraj to figure out what your code did.
 \end{note}
 
 \begin{problem}
