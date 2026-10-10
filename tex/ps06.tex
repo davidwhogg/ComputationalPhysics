@@ -9,14 +9,59 @@ Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
-  In this problem we will build a model for the data we used in \psname~4.
+  In this problem we will build a model for the data we used in \psname~4, \problemname~1.
   The model is
   \begin{align}
     y_i = \beta + \alpha\,\exp(-\frac{1}{2}\,[x_i - \mu]^2) ~,
   \end{align}
   where $\beta,\alpha,\mu$ are free parameters.
+  \subpart\label{sub:start}
+  Write a function \code{predict(pars, xs)} that takes in as input \code{pars},
+  which is a three-element array containing $\beta,\alpha,\mu$, and the \code{xs}
+  that you loaded in from the pickle file.
+  Plot the data that you plotted in \psname~4 in black squares, and overplot a model for the data
+  in red exes or as a red line.
+  Note that you will have to choose values for $\beta,\alpha,\mu$; choose them by hand so your plot looks ``okay.''
   \subpart
-  Write a function \code{predict} that takes in 
+  Now make a function \code{loss(pars, xs, ys)} that takes in the same inputs, plus
+  the $y$ values \code{ys}.
+  Write this code such that it computes the total squared error---the sum of the squares of the difference between the $y$ values in \code{ys} and the ouptut of \code{predict}.
+  This output should be just one number.
+  Compute and report this output for the parameter values you used to make your plot in \subpartref{sub:start}.
+  \subpart
+  Now find and report the value of \code{pars} that minimizes \code{loss(pars, xs, ys)}.
+  To do this you can use any optimizer you like.
+  Look at \code{scipy.optimize} or write your own.
+  Report your best-fit \code{pars} and re-make your plot from \subpartref{sub:start} but now with the optimized values.
+  Does it look better?
+\end{problem}
+
+\begin{note}
+  If you write your own optimizer, you might want to write \code{predict} and \code{loss} in Python Jax, so you get derivatives.
+\end{note}
+
+\begin{note}
+  Your plots should be properly labeled here, but they don't have to be pretty.
+  If you want to make the plots pretty, instead of plotting the prediction in a set of red exes or jagged line,
+  plot it as a continuous function of $x$ by making a fine grid called \code{xplot},
+  such that your plotting command looks like \code{plot(xplot, predict(pars, xplot), "r-")}.
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~7.1.
+\end{problem}
+
+\begin{note}
+  Make sure all the plots you make for this \problemname, and for all other \problemname s,
+  meet Hogg's criteria for good plotting practice.
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~7.2.
+\end{problem}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~7.10.
 \end{problem}
 
 \end{document}
