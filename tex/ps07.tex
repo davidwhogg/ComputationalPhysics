@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\input{computational}
+\begin{document}
+
+\startps{7}
+Due Friday 2026 October 23 at 18:00 on Brightspace.
+Be sure to explicitly give credit where it is due, on all problems.
+Also credit buddies, web pages, and LLMs (as per course policy).
+Failure to give explicit credits will result in points deducted.
+
+\begin{problem}
+  For this problem you will write a simple Euler's method code, and write a simple leapfrog code.
+  We're going to test these two codes on a very simple problem, the two-body problem in gravity
+  (the Kepler problem).
+  \subpart Look up the mass of the Sun and Jupiter, and the distance to Jupiter.
+  We are going to ignore all the other planets (not a good approximation).
+  Compute the circular velocity $v_\mathrm{c}$ at Jupiter's orbit.
+  We are going to work in units of years, a.u., and Solar Masses for this problem.
+  Put all your answers for this problem---and write your code---in these units.
+  \subpart
+  Write a function called \code{accelerations(xs)} that takes in six coordinates (the $(x,y,z)$ for the Sun and $(x,y,z)$ for Jupiter and computes six components of the acceleration (the $(a_x, a_y, a_z)$ for the force acting on the Sun and the $(a_x, a_y, a_z)$ acting on Jupiter.
+  \subpart
+  Start with the Sun at the origin and Jupiter at a reasonable displacement from the Sun (on the $x$ axis), give the Sun an initial velocity of zero and Jupiter an initial velocity (in the $y$ direction) of $0.9\,v_\mathrm{c}$.
+  Using both Euler's method and leapfrog, integrate the orbits of the Sun and Jupiter for 100 years.
+  Use the same time step for both (choose it wisely; maybe 0.01 years).
+  Plot the Euler and leapfrog orbits for Jupiter on a well-labeled plot of $x$ \foreign{vs} $y$.
+  Plot the Euler and leapfrog orbits for the Sun on a well-labeled plot, maybe with different axis limits.
+  Now zoom in on part of Jupiter's orbit; does the orbit ``close''? At what level does it miss?
+  \subpart
+  Write a function called \code{angular_momentum(ms, xs, vs)} that takes as input the two masses, the six components of position, and the six components of velocity, and returns the total angular momentum vector about the origin.
+  Plot the $z$ component $L_z$ of the angular momentum vs time (in years) for the whole system, for both the Euler and leapfrog orbits.
+  Do you have any comments?
+\end{problem}
+
+\begin{note}
+  To do the last part, you might need to modify your integrators so they save the angular momentum vector as a function of timestep.
+\end{note}
+
+\begin{note}
+  When you write your leapfrog integrator, you might think a bit about code structure.
+  The key things you might want include \code{leapfrog_start()} that moves forward a half-timestep to set up the leapfrog,
+  and \code{leapfrog_step()} that moves the system---both positions and velocities---forward by one full step.
+  In some applications you might also want \code{leapfrog_end()} that moves things forward by the last half-timestep to get everything back to the same time.
+  Finally, if you want good code, make it agnostic to the number of position variables (in this case there are six).
+\end{note}
+
+\begin{note}
+  If you want a window into Prof Hogg's origins, see \href{https://ui.adsabs.harvard.edu/scan/manifest/1991AJ....101.2274H?art=true}{``Dynamical limits on dark mass in the Solar System'' (1991)}.
+  The integrations were for about 100 years, and they were done with a home-built leapfrog integrator.
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~8.3.
+\end{problem}
+
+\begin{note}
+  You don't have to write your own integrator for this problem.
+  You can use any standard Python integrator.
+  Or you can write your own, as you wish!
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~8.5.
+\end{problem}
+
+\begin{note}
+  For this problem you can use your leapfrog integrator from the first \problemname,
+  or else you can use any standard Python integrator.
+\end{note}
+
+\begin{problem}
+  Newman, \textit{Computational Physics, 2ed}, Exercise~8.15.
+\end{problem}
+
+\begin{note}
+  You don't have to write your own Runge--Kutta integrator for this problem;
+  use any standard Python RK4 integrator.
+\end{note}
+
+\end{document}
