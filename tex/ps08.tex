@@ -14,7 +14,7 @@ Failure to give explicit credits will result in points deducted.
   Look up the properties of a golf ball and use these instead of what's written in that problem.
   Once you have done all parts \textsl{(a)} through \textsl{(c)}, do one final part
   \setcounter{subpart}{3}
-  \subpart The fastest any mechanical device could ever launch a golfball is about one half the speed of sound in air (``mach 0.5'').
+  \subpart The fastest any mechanical device could ever launch a golf ball is about one half the speed of sound in air (``mach 0.5'').
   Any faster and the ball would ablate.
   Play around with your integrator to see how far a golfer could hit a golf ball if they could hit the ball at half the speed of sound in air.
   Comment on your answer in the context of the longest golf drives ever hit.
@@ -23,5 +23,55 @@ Failure to give explicit credits will result in points deducted.
 \begin{note}
   Use your leapfrog integrator, or use any standard Python integrator.
 \end{note}
+
+\begin{note}
+  On the last part, you could use ideas from optimization to find the
+  farthest the ball can fly over level ground when launched at mach
+  0.5.
+\end{note}
+
+\begin{problem}
+  You can think of an ODE as a map:
+  You start with initial conditions $p,q$ and you integrate forward in time to get a new state $p,q$.
+  That's a mapping $p,q\rightarrow p,q$.
+  The simplest (maybe) interesting map is the \emph{logistic map}:
+  \begin{align}
+    x &\leftarrow r\,x\,[1 - x] ~,
+  \end{align}
+  where $r$ is a continuous parameter setting how strong the nonlinearity is.
+
+  Write simple code that iterates this map.
+  At every $r$ value in \code{np.arange(2.5, 4.0, 0.001)} do the following:
+  Starting at $x=0.5$, iterate the map 1000 times as a ``burn-in phase'' at one fixed value of $r$.
+  Then make a scatter plot of $x$ \foreign{vs} $r$ for the next 100 iterations.
+  Then move to the next $r$ value.
+
+  Look up this map on the internets.
+  What does it have to do with chaos?
+\end{problem}
+
+\begin{note}
+  Play around with your plotting so that you can see all the amazing structure.
+  You will want to make your points tiny!
+\end{note}
+
+\begin{note}
+  Most values of $r$ prodice one fixed point, or 2, or $2^n$, or none.
+  The chaotic transitions happen when triples of fixed points appear.
+  Can you find an $r$ value that has a triplet of fixed points?
+  That's called a 3-cycle, and it is critical to the onset of chaos.
+\end{note}
+
+\begin{note}
+  Hogg speaks of ``moving to the next $r$ value'' but if you are clever,
+  you can do all $r$ values in your list all at once, in parallel.
+  If you want to think about how to code, figure out how to do this problem
+  with only one for loop (the loop over iterations of the map, which requires
+  sequential execution).
+\end{note}
+
+\begin{problem}
+  \hoggsay{Surface of section.}
+\end{problem}
 
 \end{document}
