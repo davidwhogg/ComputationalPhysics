@@ -9,6 +9,35 @@ Also credit buddies, web pages, and LLMs (as per course policy).
 Failure to give explicit credits will result in points deducted.
 
 \begin{problem}
+  Consider the rigid simple pendulum:
+  \begin{align}
+    \frac{\dd\omega}{\dd t} &= -\frac{g}{\ell}\,\sin\theta \\
+    \frac{\dd\theta}{\dd t} &= \omega ~,
+  \end{align}
+  where $m,\ell,g$ are constants with units of $\kg$, $\m$, and $\mps$.
+  Use your leapfrog integrator to integrate these through full orbits (or a little bit more).
+  Plot phase space $\theta, \omega$ orbits for a set of initial conditions
+  that start at initial conditions with $\theta_0=0$ and $\omega_0$ in the list
+  \newcommand{\foo}{\sqrt{\frac{g}{\ell}}}
+  \begin{align}
+    \omega_0 &\in \left\{0., 0.2\,\foo, 0.4\,\foo, 0.6\,\foo, \cdots, 2.4\,\foo \right\} ~.
+  \end{align}
+  Plot your plot in the range $-2\,\pi<\theta<2\,\pi$ and $-2.5\,\sqrt{g/\ell}<\omega<2.5\,\sqrt{g/\ell}$.
+  You should have some curves that are ``closed orbits'' and some that are ``open orbits.''
+  Think hard about how you repeat your curves with offsets of $\pm2\,\pi$ to properly fill the space.
+\end{problem}
+
+\begin{note}
+  What step size should you use for this problem?
+  Well, the natural timescale is $\sqrt{l/g}$, so probably $0.01\,\sqrt{\ell/g}$ is probably good enough for our purposes.
+\end{note}
+  
+\begin{note}
+  For extra aura, terminate your integrals when you have come back to $\theta=0$ moving in the $\omega>0$ direction.
+  That will be a useful thing to have figured out for another problem, below.
+\end{note}
+
+\begin{problem}
   We're going to do a modification of Exercise~8.7 in Newman, \textit{Computational Physics, 2ed},
   for a golf ball (not a cannonball).
   Look up the properties of a golf ball and use these instead of what's written in that problem.
@@ -34,7 +63,7 @@ Failure to give explicit credits will result in points deducted.
   You can think of an ODE as a map:
   You start with initial conditions $p,q$ and you integrate forward in time to get a new state $p,q$.
   That's a mapping $p,q\rightarrow p,q$.
-  The simplest (maybe) interesting map is the \emph{logistic map}:
+  The simplest (maybe) interesting map is the one-dimensional \emph{logistic map}:
   \begin{align}
     x &\leftarrow r\,x\,[1 - x] ~,
   \end{align}
@@ -56,7 +85,7 @@ Failure to give explicit credits will result in points deducted.
 \end{note}
 
 \begin{note}
-  Most values of $r$ prodice one fixed point, or 2, or $2^n$, or none.
+  Most values of $r$ produce, on this plot, one fixed point, or 2, or $2^n$, or none.
   The chaotic transitions happen when triples of fixed points appear.
   Can you find an $r$ value that has a triplet of fixed points?
   That's called a 3-cycle, and it is critical to the onset of chaos.
@@ -71,7 +100,44 @@ Failure to give explicit credits will result in points deducted.
 \end{note}
 
 \begin{problem}
-  \hoggsay{Surface of section.}
+  Consider the two-dimensional dynamical system
+  \begin{align}
+    H &= \frac{|\vec{p}|^2}{2\,m} - \frac{G\,M}{|\vec{r}|^2} + \Omega^2\,x\,y ~,
+  \end{align}
+  where $H$ is the Hamiltonian,
+  $\vec{p}$ is the non-relativistic 2-momentum, and
+  $\vec{r}=x\,\hat{x}+y\,\hat{y}$ is the 2-displacement from the origin,
+  and the dynamics are precisely Hamiltonian.
+  Work in units of a.u., Solar Masses, and years, and work with a $M$ equal to a Solar mass and consider orbits that are about 1\,a.u. away from the origin.
+  We are going to integrate orbits in this potential, setting $\Omega$ to something small but signficant.
+
+  \subpart Consider only initial conditions that start at $(x_0,y_0)=(1\,\au, 0\,\au)$ and $v_{x0},v_{y0}=(v_{x0},v_\mathrm{circ})$, where $v_\mathrm{circ}$ is the circular velocity at $1\,\au$ and when $\Omega=0$.
+  That is, the only free parameter of our initial conditions is 
+  Write code that can integrate this system with leapfrog with a step-size that is (say) 0.001 of a circular orbital time, for something like 200 orbits.
+  Make your code save the positions and the velocities and the corresponding times (and remember that the positions and the velocities are at different times when you use leapfrog).
+  Check that your code is correct by setting $\Omega=0$ and checking that your orbits are closed ellipses, in both position space and velocity space.
+  That is, plot the position and velocity slices of phase space for some particular orbits at $\Omega=0$ (you might show each orbit in your plot with a different color of dots).
+
+  \subpart We are now going to look at a \emph{surface of section}.
+  We make this by looking for times that the orbit passes through $x=0$ with $v_x>0$ (sound familiar?).
+  For each such passage, use linear interpolation (or equivalent) on your leapfrog outputs to figure out the precise time $t_\text{surf}$ at which the system passed through $x=0$.
+  Now interpolate the discretized positions to that time, and the discretized velocities also to that time, to get $x_\text{surf}$ and $v_{x,\text{surf}}$.
+  Note that these two interpolations are in general different, because the positions and velocities in leapfrog are on different time grids.
+  Once all this interpolation is working, make scatter plots of $x_\text{surf},v_{x,\text{surf}}$.
+  When $\Omega$ is small, and $v_{x0}$ is small, these scatter plots should make little circles in phase space.
+
+  \subpart Now fiddle with $\Omega$ and find some initial velocities $v_{x0}$ that illustrate islands of stability and the sea of chaotic orbits.
+  You might need to do some research to figure out how to find these.
 \end{problem}
+
+\begin{note}
+  Hogg is not \emph{completely certain} that this \problemname{} will work at all.
+  Hey, it's \emph{science}.
+\end{note}
+
+\begin{note}
+  Of what is this Hamiltonian system a model?
+  How would you modify this to be a model of the Moon in its chaotic orbit around the Earth?
+\end{note}
 
 \end{document}
