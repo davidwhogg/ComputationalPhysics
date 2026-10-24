@@ -122,9 +122,10 @@ Failure to give explicit credits will result in points deducted.
   We make this by looking for times that the orbit passes through $x=0$ with $v_x>0$ (sound familiar?).
   For each such passage, use linear interpolation (or equivalent) on your leapfrog outputs to figure out the precise time $t_\text{surf}$ at which the system passed through $x=0$.
   Now interpolate the discretized positions to that time, and the discretized velocities also to that time, to get $x_\text{surf}$ and $v_{x,\text{surf}}$.
-  Note that these two interpolations are in general different, because the positions and velocities in leapfrog are on different time grids.
-  Once all this interpolation is working, make scatter plots of $x_\text{surf},v_{x,\text{surf}}$.
-  When $\Omega$ is small, and $v_{x0}$ is small, these scatter plots should make little circles in phase space.
+  Check your code by setting $\Omega=0$ and checking that they are perfectly periodic (or close enough, given your finite step size).
+  Note that the two interpolations are in general different, because the positions and velocities in leapfrog are on different time grids.
+  Once all this interpolation is working, make scatter plots of $y_\text{surf},v_{y,\text{surf}}$.
+  When $\Omega$ is small (but non-zero), and $v_{x0}$ is small, these scatter plots should make little circles in phase space.
 
   \subpart Now fiddle with $\Omega$ and find some initial velocities $v_{x0}$ that illustrate islands of stability and the sea of chaotic orbits.
   You might need to do some research to figure out how to find these.
@@ -138,6 +139,10 @@ Failure to give explicit credits will result in points deducted.
 \begin{note}
   Of what is this Hamiltonian system a model?
   How would you modify this to be a model of the Moon in its chaotic orbit around the Earth?
+\end{note}
+
+\begin{note}
+  If you have trouble setting your parameters and your initial conditions on this problem, ask Hogg for advice and suggestions.
 \end{note}
 
 \end{document}
