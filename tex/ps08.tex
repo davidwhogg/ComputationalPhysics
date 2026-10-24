@@ -113,7 +113,7 @@ Failure to give explicit credits will result in points deducted.
 
   \subpart Consider only initial conditions that start at $(x_0,y_0)=(1\,\au, 0\,\au)$ and $v_{x0},v_{y0}=(v_{x0},v_\mathrm{circ})$, where $v_\mathrm{circ}$ is the circular velocity at $1\,\au$ and when $\Omega=0$.
   That is, the only free parameter of our initial conditions is 
-  Write code that can integrate this system with leapfrog with a step-size that is (say) 0.001 of a circular orbital time, for something like 200 orbits.
+  Write code that can integrate this system with leapfrog with a step-size that is (say) $10^{-4}$ of a circular orbital time, for something like 200 orbits.
   Make your code save the positions and the velocities and the corresponding times (and remember that the positions and the velocities are at different times when you use leapfrog).
   Check that your code is correct by setting $\Omega=0$ and checking that your orbits are closed ellipses, in both position space and velocity space.
   That is, plot the position and velocity slices of phase space for some particular orbits at $\Omega=0$ (you might show each orbit in your plot with a different color of dots).
