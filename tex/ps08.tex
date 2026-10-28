@@ -125,7 +125,7 @@ Failure to give explicit credits will result in points deducted.
   That is, also plot the position and velocity slices of phase space for some particular orbits at $\Omega^2=0$.
 
   \subpart We are now going to look at a \emph{surface of section}.
-  We make this by looking for times that the orbit passes through $z=0$ with $v_z>0$ (sound familiar?).
+  We make this by looking for times that the orbit passes through $z=0$ with $v_z>0$.
   For each such passage, use linear interpolation (or equivalent) on your leapfrog outputs to figure out the precise time $t_\text{surf}$ at which the system passed through $z=0$.
   Now interpolate the discretized positions to that time, and the discretized velocities also to that time, to get $\vec{r}_\text{surf}$ and $\vec{v}_\text{surf}$.
   Check your code by setting $\Omega^2=0$ and checking that they are perfectly periodic (or close enough, given your finite step size).
