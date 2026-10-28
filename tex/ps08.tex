@@ -100,49 +100,51 @@ Failure to give explicit credits will result in points deducted.
 \end{note}
 
 \begin{problem}
-  Consider the two-dimensional dynamical system
+  Consider the three-dimensional dynamical system
   \begin{align}
-    H &= \frac{|\vec{p}|^2}{2\,m} - \frac{G\,M}{|\vec{r}|^2} + \Omega^2\,x\,y ~,
+    H &= \frac{|\vec{p}|^2}{2\,m} - \frac{G\,M}{|\vec{r}|^2} + \Omega^2\,[x^2 + y^2 - 2\,z^2] ~,
   \end{align}
   where $H$ is the Hamiltonian,
-  $\vec{p}$ is the non-relativistic 2-momentum, and
-  $\vec{r}=x\,\hat{x}+y\,\hat{y}$ is the 2-displacement from the origin,
+  $\vec{p}$ is the non-relativistic 2-momentum,
+  $\vec{r}=x\,\hat{x}+y\,\hat{y}+z\,\hat{z}$ is the 2-displacement from the origin,
   and the dynamics are precisely Hamiltonian.
-  Work in units of a.u., Solar Masses, and years, and work with a $M$ equal to a Solar mass and consider orbits that are about 1\,a.u. away from the origin.
-  We are going to integrate orbits in this potential, setting $\Omega$ to something small but signficant.
+  Work in units of $\au$, Solar Masses, and $\yr$, and work with a $M$ equal to one Solar mass and consider orbits that are about $1\,\au$ away from the origin.
+  We are going to integrate orbits in this potential, setting $\Omega^2$ to something small but signficant.
 
-  \subpart Consider only initial conditions that start at $(x_0,y_0)=(1\,\au, 0\,\au)$ and $v_{x0},v_{y0}=(v_{x0},v_\mathrm{circ})$, where $v_\mathrm{circ}$ is the circular velocity at $1\,\au$ and when $\Omega=0$.
-  That is, the only free parameter of our initial conditions is 
-  Write code that can integrate this system with leapfrog with a step-size that is (say) $10^{-4}$ of a circular orbital time, for something like 200 orbits.
+  \subpart Consider only initial conditions that start at
+  \begin{align}
+    \vec{r}_0 = [x_0,y_0,z_0]^\top &= [1\,\au, 0, 0]^\top \\
+    \vec{v}_0 = [v_{x0},v_{y0},v_{z0}]^\top &= [v_{x0},v_\mathrm{circ},v_{z0}]^\top \,
+  \end{align}
+  where $v_\mathrm{circ}$ is the circular velocity ($2\,\pi\,\au\,\yr^{-1}$) at $1\,\au$ (when $\Omega^2=0$).
+  We are going to arbitrarily fix $\Omega^2=0.5$ (in these units) and arbitrarily fix $v_{z0}=0.6\,\au\,\yr^{-1}$ such that there is only one free parameter, that is, $v_{x0}$.
+  Write code that can integrate this system with leapfrog with a step-size that is (say) $10^{-4}\,\yr$, and integrate for something like 200 years.
   Make your code save the positions and the velocities and the corresponding times (and remember that the positions and the velocities are at different times when you use leapfrog).
-  Check that your code is correct by setting $\Omega=0$ and checking that your orbits are closed ellipses, in both position space and velocity space.
-  That is, plot the position and velocity slices of phase space for some particular orbits at $\Omega=0$ (you might show each orbit in your plot with a different color of dots).
+  Make a plot of an orbit in the space of $x$ \foreign{vs} $z$ like the one Prof Hogg put on Discord(tm).
+  Check that your code is correct by setting $\Omega^2=0$ and checking that your orbits are closed ellipses, in both position space and velocity space.
+  That is, also plot the position and velocity slices of phase space for some particular orbits at $\Omega^2=0$.
 
   \subpart We are now going to look at a \emph{surface of section}.
-  We make this by looking for times that the orbit passes through $x=0$ with $v_x>0$ (sound familiar?).
-  For each such passage, use linear interpolation (or equivalent) on your leapfrog outputs to figure out the precise time $t_\text{surf}$ at which the system passed through $x=0$.
-  Now interpolate the discretized positions to that time, and the discretized velocities also to that time, to get $x_\text{surf}$ and $v_{x,\text{surf}}$.
-  Check your code by setting $\Omega=0$ and checking that they are perfectly periodic (or close enough, given your finite step size).
+  We make this by looking for times that the orbit passes through $z=0$ with $v_z>0$ (sound familiar?).
+  For each such passage, use linear interpolation (or equivalent) on your leapfrog outputs to figure out the precise time $t_\text{surf}$ at which the system passed through $z=0$.
+  Now interpolate the discretized positions to that time, and the discretized velocities also to that time, to get $\vec{r}_\text{surf}$ and $\vec{v}_\text{surf}$.
+  Check your code by setting $\Omega^2=0$ and checking that they are perfectly periodic (or close enough, given your finite step size).
   Note that the two interpolations are in general different, because the positions and velocities in leapfrog are on different time grids.
-  Once all this interpolation is working, make scatter plots of $y_\text{surf},v_{y,\text{surf}}$.
-  When $\Omega$ is small (but non-zero), and $v_{x0}$ is small, these scatter plots should make little circles in phase space.
-
-  \subpart Now fiddle with $\Omega$ and find some initial velocities $v_{x0}$ that illustrate islands of stability and the sea of chaotic orbits.
-  You might need to do some research to figure out how to find these.
+  Once all this interpolation is working, set $\Omega^2=0.5$ and make scatter plots of $\rho_\text{surf},v_{\rho,\text{surf}}$ for some different values of $v_{x0}$, where these coordinates are defined in the cylindrical coordinate system by
+  \begin{align}
+    \rho^2 &= x^2 + y^2 \\
+    v_\rho &= \frac{1}{\rho}\,[v_x\,x + v_y\,y] ~.
+  \end{align}
+  When $\Omega^2=0.5$ is finite and $v_{x0}$ is small, these scatter plots should make little loops in phase space.
 \end{problem}
 
 \begin{note}
-  Hogg is not \emph{completely certain} that this \problemname{} will work at all.
-  Hey, it's \emph{science}.
-\end{note}
-
-\begin{note}
   Of what is this Hamiltonian system a model?
-  How would you modify this to be a model of the Moon in its chaotic orbit around the Earth?
 \end{note}
 
 \begin{note}
-  If you have trouble setting your parameters and your initial conditions on this problem, ask Hogg for advice and suggestions.
+  If you have trouble getting plots or sub-parts of this problem working, ask Hogg for help and suggestions.
+  This is not a trivial problem.
 \end{note}
 
 \end{document}
