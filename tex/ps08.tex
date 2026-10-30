@@ -102,15 +102,16 @@ Failure to give explicit credits will result in points deducted.
 \begin{problem}
   Consider the three-dimensional dynamical system
   \begin{align}
-    H &= \frac{|\vec{p}|^2}{2\,m} - \frac{G\,M}{|\vec{r}|^2} + \Omega^2\,[x^2 + y^2 - 2\,z^2] ~,
+    H &= \frac{|\vec{p}|^2}{2\,m} - \frac{G\,M\,m}{|\vec{r}|} + \Omega^2\,m\,[x^2 + y^2 - 2\,z^2] ~,
   \end{align}
   where $H$ is the Hamiltonian,
   $\vec{p}$ is the non-relativistic 2-momentum,
   $\vec{r}=x\,\hat{x}+y\,\hat{y}+z\,\hat{z}$ is the 2-displacement from the origin,
+  the particle mass $m\ll M$ is tiny,
   and the dynamics are precisely Hamiltonian.
   Work in units of $\au$, Solar Masses, and $\yr$, and work with a $M$ equal to one Solar mass and consider orbits that are about $1\,\au$ away from the origin.
   We are going to integrate orbits in this potential, setting $\Omega^2$ to something small but signficant.
-
+  
   \subpart Consider only initial conditions that start at
   \begin{align}
     \vec{r}_0 = [x_0,y_0,z_0]^\top &= [1\,\au, 0, 0]^\top \\
